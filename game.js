@@ -1,3 +1,6 @@
+// require('./my-adapter');
+
+
 // access 接口问题访问本地文件，复现平台：IDE
 // require('./demos/fs_access');
 
@@ -9,4 +12,7 @@
 // timeout 回调缺失
 
 // performance_now 返回的时间错误
-require('./demos/performance_now.js');
+// require('./demos/performance_now.js');
+
+// image onload 回调问题
+require('./demos/loadImage');
