@@ -6,4 +6,7 @@
 
 // 没办法提供简单 demo：
 // touch 事件：屏幕边缘不能触发 touch 事件，复现平台：安卓机
-// log 阻塞进程问题，复现平台：安卓机
+// timeout 回调缺失
+
+// performance_now 返回的时间错误
+require('./demos/performance_now.js');
