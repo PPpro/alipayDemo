@@ -18,4 +18,7 @@ require('./my-adapter');
 // require('./demos/loadImage');
 
 // webGlRenderingContext.canvas 引用错误，复现平台：安卓机
-require('./demos/canvas');
+// require('./demos/canvas');
+
+// webgl stencil 遮罩无效，复现平台：华为荣耀9
+require('./demos/gl_stencil');
