@@ -137,6 +137,8 @@ function setupBufferAndDraw(){
     gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertex), gl.STATIC_DRAW);
     gl.drawArrays(gl.TRIANGLES, 0, vertex.length / 3);
+
+    window.requestAnimationFrame(setupBufferAndDraw);
 }
 
 getGLContext();
