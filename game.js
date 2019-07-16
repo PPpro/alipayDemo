@@ -4,7 +4,7 @@ require('./my-adapter');
 // access 接口问题访问本地文件，复现平台：IDE
 // require('./demos/fs_access');
 
-// downloadFile 之后，readFile 失败，复现平台：IDE，华为荣耀9
+// downloadFile 之后，readFile 失败，复现平台：IDE，华为荣耀9 【已修复】
 // require('./demos/fs_readFile');
 
 // 没办法提供简单 demo：
@@ -12,7 +12,7 @@ require('./my-adapter');
 // timeout 回调缺失 【已修复】
 
 // performance_now 返回的时间错误 【已修复】
-// require('./demos/performance_now.js');
+// require('./demos/performance_now');
 
 // image onload 回调问题，复现平台：安卓机 【已修复】
 // require('./demos/loadImage');
@@ -24,4 +24,7 @@ require('./my-adapter');
 // require('./demos/gl_stencil');
 
 // 音频：使用拷贝后的路径，播放失败，复现平台：安卓机
-require('./demos/audio');
+// require('./demos/audio');
+
+// 陀螺仪没有立即开启，开启有一段时间延时, 在华为荣耀9 上没有执行回调
+require('./demos/acceleration');
