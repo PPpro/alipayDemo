@@ -21,4 +21,7 @@ require('./my-adapter');
 // require('./demos/canvas');
 
 // webgl stencil 遮罩无效，复现平台：华为荣耀9
-require('./demos/gl_stencil');
+// require('./demos/gl_stencil');
+
+// 音频：使用拷贝后的路径，播放失败，复现平台：安卓机
+require('./demos/audio');
