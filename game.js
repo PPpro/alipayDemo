@@ -27,4 +27,7 @@ require('./my-adapter');
 // require('./demos/audio');
 
 // 陀螺仪没有立即开启，开启有一段时间延时, 在华为荣耀9 上没有执行回调
-require('./demos/acceleration');
+// require('./demos/acceleration');
+
+// keyboard 软键盘上没有出现输入框， 复现平台：小米5
+require('./demos/keyboard');
