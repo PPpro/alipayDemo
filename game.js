@@ -1,7 +1,7 @@
 require('./my-adapter');
 
-// downloadFile 之后，readFile 失败，复现平台：IDE，华为荣耀9 【已修复】
-// require('./demos/fs_readFile');
+// downloadFile 之后，readFile 失败，复现平台：IDE，华为荣耀9
+require('./demos/fs_readFile');
 
 // performance_now 返回的时间错误 【已修复】
 // require('./demos/performance_now');
