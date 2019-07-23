@@ -5,17 +5,17 @@ my.downloadFile({
     success: res => {
         console.error('download success', res);
 
-        // 使用下载后的临时路径可以播放
-        // let audio = my.createInnerAudioContext();
-        // audio.src = res.apFilePath;
-        // audio.play();
+        // BUG: 使用下载后的临时路径，播放失败
+        let audio = my.createInnerAudioContext();
+        audio.src = res.apFilePath;
+        audio.play();
         
         fs.copyFile({
             srcPath: res.apFilePath,
             destPath: copyPath,
             success () {
                 console.error('copy file finished:', copyPath);
-                // BUG: 使用拷贝后的路径，不能播放
+                // BUG: 使用拷贝后的路径，播放失败
                 let audio = my.createInnerAudioContext();
                 audio.src = copyPath;
                 audio.play();
@@ -29,3 +29,8 @@ my.downloadFile({
       console.error('download fail', res);
     }
 });
+
+// 直接播放成功
+// let audio = my.createInnerAudioContext();
+// audio.src = 'https://creatorpp.cn/audioTest/audio.mp3';
+// audio.play();

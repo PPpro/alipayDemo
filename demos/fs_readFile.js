@@ -1,8 +1,14 @@
 
-// https://creatorpp.cn/zfbres2/res/import/28/2874f8dd-416c-4440-81b7-555975426e93.json
-// https://creatorpp.cn/zfbres/res/import/07/07ce7530a.json
+
+let urls = [
+  'https://creatorpp.cn/zfbres2/res/import/28/2874f8dd-416c-4440-81b7-555975426e93.json',
+  'https://creatorpp.cn/zfbres/res/import/07/07ce7530a.json',
+  'https://creatorpp.cn/zfbres2/res/import/0d/0d669730c.json',
+  'https://creatorpp.cn/zfbres2/res/import/0d/0d669730c.json',
+];
+urls.forEach(item => {
 my.downloadFile({
-    url: 'https://creatorpp.cn/zfbres2/res/import/28/2874f8dd-416c-4440-81b7-555975426e93.json', // 下载文件地址
+    url: item,
     success: (res) => {
       console.error('download success', res);
       
@@ -22,3 +28,4 @@ my.downloadFile({
       console.error('download fail', res);
     }
   });
+});

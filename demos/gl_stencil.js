@@ -24,21 +24,15 @@ var fragment_shader_source = `
 `;
 
 function getGLContext() {
-    var glContextNames = ['webgl', 'experimental-webgl'];
-    for (var i = 0; i < glContextNames.length; i ++) {
-        try {
-            gl = canvas.getContext(glContextNames[i], {
-                stencil: true
-            });
-        } catch (e) {}
-        if (gl) {
-            gl.clearColor(0, 0, 0, 1);
-            gl.clear(gl.COLOR_BUFFER_BIT | gl.STENCIL_BUFFER_BIT);
-            // gl.viewport(0, 0, canvas.width, canvas.height);
-            gl.enable(gl.STENCIL_TEST);
-            break;
-        }
-    }
+      gl = canvas.getContext('webgl', {
+          stencil: true
+      });
+      if (gl) {
+          gl.clearColor(0, 0, 0, 1);
+          gl.clear(gl.COLOR_BUFFER_BIT | gl.STENCIL_BUFFER_BIT);
+          // gl.viewport(0, 0, canvas.width, canvas.height);
+          gl.enable(gl.STENCIL_TEST);
+      }
 }
 
 function initShaders() {
@@ -138,7 +132,7 @@ function setupBufferAndDraw(){
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertex), gl.STATIC_DRAW);
     gl.drawArrays(gl.TRIANGLES, 0, vertex.length / 3);
 
-    window.requestAnimationFrame(setupBufferAndDraw);
+    // window.requestAnimationFrame(setupBufferAndDraw);
 }
 
 getGLContext();
