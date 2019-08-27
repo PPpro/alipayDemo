@@ -59,15 +59,15 @@ function initWebgl() {
     let ctx = label.getContext('2d');
     ctx.fillStyle = 'white';
     ctx.font = '60pt Arial';
-    // 描边
-    ctx.lineWidth = 10;
-    ctx.strokeStyle = 'red';
-    ctx.strokeText('Hello!', 20, 100);
-    // 阴影
-    ctx.shadowColor = 'rgba(0, 0, 0, 1)';
-    ctx.shadowBlur = 10;
-    ctx.shadowOffsetX = 10;
-    ctx.shadowOffsetY = 10;
+    // // 描边
+    // ctx.lineWidth = 10;
+    // ctx.strokeStyle = 'red';
+    // ctx.strokeText('Hello!', 20, 100);
+    // // 阴影
+    // ctx.shadowColor = 'rgba(0, 0, 0, 1)';
+    // ctx.shadowBlur = 10;
+    // ctx.shadowOffsetX = 10;
+    // ctx.shadowOffsetY = 10;
     ctx.fillText('Hello!', 20, 100);
 
     //  确保不会颠倒过来渲染
@@ -108,7 +108,7 @@ function initWebgl() {
     gl.vertexAttribPointer(texCoordLoc, 2, gl.FLOAT, false, 4 * Float32Array.BYTES_PER_ELEMENT, 2 * Float32Array.BYTES_PER_ELEMENT);
 
     function drawLoop () {
-      gl.clearColor(0.2, 0.2, 0.2, 1.0);
+      gl.clearColor(1, 1, 1, 1.0);
       gl.clear(gl.COLOR_BUFFER_BIT);
       // gl.drawArrays(gl.TRIANGLES, 0, 3);
       gl.drawElements(gl.TRIANGLES, indexArr.length, gl.UNSIGNED_SHORT, 0);
