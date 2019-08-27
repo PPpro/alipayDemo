@@ -39,4 +39,6 @@ require('./my-adapter');
 // require('./demos/websocket');
 
 // 文字描边和阴影
-import './demos/label_outline';
+// import './demos/label_outline';
+
+require('./demos/fs_write');
