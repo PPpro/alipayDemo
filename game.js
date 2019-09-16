@@ -1,6 +1,6 @@
 require('./my-adapter');
 
-import './webgl/main';
+// import './webgl/main';
 
 // performance_now 返回的时间错误 【已修复】
 // require('./demos/performance_now');
@@ -41,4 +41,7 @@ import './webgl/main';
 // 文字描边和阴影
 // import './demos/label_outline';
 
-require('./demos/fs_write');
+// 文字模糊
+import './demos/label_bug';
+
+// require('./demos/fs_write');
