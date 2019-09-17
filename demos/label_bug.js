@@ -24,10 +24,13 @@ const shaderSource = {
 };
 
 function initWebgl() {
+  let sys = my.getSystemInfoSync();
     let canvas = my.createCanvas();
+    canvas.width = sys.windowWidth * sys.pixelRatio;
+    canvas.height = sys.windowHeight * sys.pixelRatio;
     let label = my.createCanvas();
-    label.width = 300;
-    label.height = 150;
+    label.width = canvas.width;
+    label.height = canvas.height;
     let gl = canvas.getContext('webgl');
     // init shader
     let vertShader = gl.createShader(gl.VERTEX_SHADER);
@@ -58,7 +61,7 @@ function initWebgl() {
     // create image
     let ctx = label.getContext('2d');
     ctx.fillStyle = 'black';
-    ctx.font = '20px Arial';
+    ctx.font = '22px Arial';
     // // 描边
     // ctx.lineWidth = 10;
     // ctx.strokeStyle = 'red';
@@ -77,8 +80,8 @@ function initWebgl() {
     gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, label);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
     // gl.activeTexture(gl.TEXTURE0);
     // init buffer
     // let vertexArr = [
@@ -90,10 +93,10 @@ function initWebgl() {
     // ];
     let vertexArr = [
         // vertex       // texture coord
-        -0.5, 0.5,      0.0, 0.0,
-        0.5, 0.5,       1.0, 0.0,
-        0.5, -0.5,      1.0, 1.0,
-        -0.5, -0.5,     0.0, 1.0,
+        -1, 1,      0.0, 0.0,
+        1, 1,       1.0, 0.0,
+        1, -1,      1.0, 1.0,
+        -1, -1,     0.0, 1.0,
     ];
     let vertexBuf = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuf);
@@ -114,7 +117,7 @@ function initWebgl() {
     gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
     gl.vertexAttribPointer(texCoordLoc, 2, gl.FLOAT, false, 4 * Float32Array.BYTES_PER_ELEMENT, 2 * Float32Array.BYTES_PER_ELEMENT);
 
-    gl.viewport(0, 0, canvas.height, canvas.width);  // 临时写死的 viewport
+    gl.viewport(0, 0, canvas.width, canvas.height);
     function drawLoop () {
       gl.clearColor(1, 1, 1, 1.0);
       gl.clear(gl.COLOR_BUFFER_BIT);
