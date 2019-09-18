@@ -62,16 +62,150 @@ function initWebgl() {
     let ctx = label.getContext('2d');
     ctx.fillStyle = 'black';
     ctx.font = '22px Arial';
-    // // 描边
-    // ctx.lineWidth = 10;
-    // ctx.strokeStyle = 'red';
-    // ctx.strokeText('TiledSprite!', 20, 100);
-    // 阴影
-    // ctx.shadowColor = 'rgba(0, 0, 0, 1)';
-    // ctx.shadowBlur = 10;
-    // ctx.shadowOffsetX = 10;
-    // ctx.shadowOffsetY = 10;
-    ctx.fillText('TiledSprite', 20, 100);
+    ctx.fillText('TiledSprite', 20, 20);
+    ctx.fillText('05_scripting/09_singleton', 140, 20);
+    ctx.fillText('downloader-native', 420, 20);
+
+    ctx.fillText('05_scripting/09_loadingBar', 20, 45);
+    ctx.fillText('停止', 330, 45);
+    ctx.fillText('走', 390, 45);
+    ctx.fillText('跑', 430, 45);
+    ctx.fillText('跳', 470, 45);
+    ctx.fillText('射击', 510, 45);
+
+    ctx.fillText('调试关节', 20, 75);
+    ctx.fillText('时间缩放', 120, 75);
+    ctx.fillText('Layout_None_Basic', 230, 75);
+    ctx.fillText('La是不错的小game。', 440, 75);
+
+    ctx.fillText('Layout_ResizeChildren_NormalGrid', 20, 100);
+    ctx.fillText('ListView', 390, 100);
+    ctx.fillText('ScrollView', 510, 100);
+
+
+    ctx.font = '22px Arial';
+    ctx.fillText('TiledSprite', 20, 130);
+    ctx.fillText('05_scripting/09_singleton', 140, 130);
+    ctx.fillText('downloader-native', 420, 130);
+
+    ctx.fillText('05_scripting/09_loadingBar', 20, 155);
+    ctx.fillText('停止', 330, 155);
+    ctx.fillText('走', 390, 155);
+    ctx.fillText('跑', 430, 155);
+    ctx.fillText('跳', 470, 155);
+    ctx.fillText('射击', 510, 155);
+
+    ctx.fillText('调试关节', 20, 185);
+    ctx.fillText('时间缩放', 120, 185);
+    ctx.fillText('Layout_None_Basic', 230, 185);
+    ctx.fillText('La是不错的小game。', 440, 185);
+
+    ctx.fillText('Layout_ResizeChildren_NormalGrid', 20, 210);
+    ctx.fillText('ListView', 390, 210);
+    ctx.fillText('ScrollView', 510, 210);
+
+    
+    ctx.font = '16px Arial';
+    ctx.fillText('TiledSprite', 20, 240);
+    ctx.fillText('05_scripting/09_singleton', 140, 240);
+    ctx.fillText('downloader-native', 420, 240);
+
+    ctx.fillText('05_scripting/09_loadingBar', 20, 260);
+    ctx.fillText('停止', 330, 260);
+    ctx.fillText('走', 390, 260);
+    ctx.fillText('跑', 430, 260);
+    ctx.fillText('跳', 470, 260);
+    ctx.fillText('射击', 510, 260);
+
+    ctx.fillText('调试关节', 20, 280);
+    ctx.fillText('时间缩放', 120, 280);
+    ctx.fillText('Layout_None_Basic', 230, 280);
+    ctx.fillText('La是不错的小game。', 440, 280);
+
+    ctx.fillText('Layout_ResizeChildren_NormalGrid', 20, 300);
+    ctx.fillText('ListView', 390, 300);
+    ctx.fillText('ScrollView', 510, 300);
+   
+    ctx.font = '14px Arial';
+    ctx.fillText('05_scripting/09_loadingBar停止走跑跳射击调试关节时间缩放Layout_None_Basic', 650, 20);
+    ctx.font = '14px Arial';
+    ctx.fillText('我测试05_scripting/09_loadingBar停止走跑跳射击调试关节时间缩放Layout_None_Basic', 650, 40);
+
+    ctx.font = '18px Arial';
+    ctx.fillText('05_scripting/09_loadingBar停止走跑跳射击调试关节时间缩放Layout_None_Basic', 650, 70);
+    ctx.font = '18px Arial';
+    ctx.fillText('我测试05_scripting/09_loadingBar停止走跑跳射击调试关节时间缩放Layout_None_Basic', 650, 105);
+
+    ctx.font = '22px Arial';
+    ctx.fillText('05_scripting/09_loadingBar停止走跑跳射击调试关节时间缩放Layout_None_Basic', 650, 135);
+
+    ctx.font = '22px Arial';
+    ctx.fillText('我测试05_scripting/09_loadingBar停止走跑跳射击调试关节时间缩放Layout_None_Basic', 650, 165);
+
+    ctx.font = '30px Arial';
+    ctx.fillText('05_scripting/09_loadingBar停止走跑跳射击调试关节时间缩放Layout_None_Basic', 650, 205);
+    ctx.font = '30px Arial';
+    ctx.fillText('我测试05_scripting/09_loadingBar停止走跑跳射击调试关节时间缩放Layout_None_Basic', 650, 245);
+
+    ctx.font = '40px Arial';
+    ctx.fillText('我测试05_scripting/09_loadingBar停止走跑跳射击调试关节时间缩放Layout_None_Basic', 650, 295);
+    ctx.font = '40px Arial';
+    ctx.fillText('05_scripting/09_loadingBar停止走跑跳射击调试关节时间缩放Layout_None_Basic', 650, 345);
+
+
+
+    ctx.font = '14px fortestfont';
+    ctx.fillText('05_scripting/09_loadingBar停止走跑跳射击调试关节时间缩放Layout_None_Basic', 20, 350);
+    ctx.fillText('我测试05_scripting/09_loadingBar停止走跑跳射击调试关节时间缩放Layout_None_Basic', 20, 380);
+
+    ctx.font = '18px fortestfont';
+    ctx.fillText('05_scripting/09_loadingBar停止走跑跳射击调试关节时间缩放Layout_None_Basic', 20, 410);
+    ctx.font = '18px Arial';
+    ctx.fillText('我测试05_scripting/09_loadingBar停止走跑跳射击调试关节时间缩放Layout_None_Basic', 20, 440);
+
+    ctx.font = '22px fortestfont';
+    ctx.fillText('05_scripting/09_loadingBar停止走跑跳射击调试关节时间缩放Layout_None_Basic', 20, 480);
+
+    ctx.font = '22px fortestfont';
+    ctx.fillText('我测试05_scripting/09_loadingBar停止走跑跳射击调试关节时间缩放Layout_None_Basic', 20, 520);
+
+    ctx.font = '26px fortestfont';
+    ctx.fillText('05_scripting/09_loadingBar停止走跑跳射击调试关节时间缩放Layout_None_Basic', 20, 560);
+    ctx.font = '26px fortestfont';
+    ctx.fillText('我测试05_scripting/09_loadingBar停止走跑跳射击调试关节时间缩放Layout_None_Basic', 20, 600);
+
+    ctx.font = '32px fortestfont';
+    ctx.fillText('我测试05_scripting/09_loadingBar停止走跑跳射击调试关节时间缩放Layout_None_Basic', 20, 650);
+    ctx.font = '32px fortestfont';
+    ctx.fillText('05_scripting/09_loadingBar停止走跑跳射击调试关节时间缩放Layout_None_Basic', 20, 700);
+
+    ctx.font = '37px fortestfont';
+    ctx.fillText('我测试05_scripting/09_loadingBar停止走跑跳射击调试关节时间缩放Layout_None_Basic', 20, 750);
+    ctx.font = '37px fortestfont';
+    ctx.fillText('05_scripting/09_loadingBar停止走跑跳射击调试关节时间缩放Layout_None_Basic', 20, 800);
+
+    ctx.font = '43px fortestfont';
+    ctx.fillText('我测试05_scripting/09_loadingBar停止走跑跳射击调试关节时间缩放Layout_None_Basic', 20, 850);
+    ctx.font = '43px fortestfont';
+    ctx.fillText('05_scripting/09_loadingBar停止走跑跳射击调试关节时间缩放Layout_None_Basic', 20, 900);
+
+
+    ctx.font = '18px sans-serif';
+    ctx.fillText('05_scripting/09_loadingBar停止走跑跳射击调试关节时间缩放Layout_None_Basic', 20, 930);
+    ctx.font = '18px sans-serif';
+    ctx.fillText('我测试05_scripting/09_loadingBar停止走跑跳射击调试关节时间缩放Layout_None_Basic', 20, 950);
+
+    ctx.font = '22px sans-serif';
+    ctx.fillText('05_scripting/09_loadingBar停止走跑跳射击调试关节时间缩放Layout_None_Basic', 20, 980);
+
+    ctx.font = '22px sans-serif';
+    ctx.fillText('我测试05_scripting/09_loadingBar停止走跑跳射击调试关节时间缩放Layout_None_Basic', 20, 1010);
+
+    ctx.font = '30px sans-serif';
+    ctx.fillText('05_scripting/09_loadingBar停止走跑跳射击调试关节时间缩放Layout_None_Basic', 20, 1040);
+    ctx.font = '30px sans-serif';
+    ctx.fillText('我测试05_scripting/09_loadingBar停止走跑跳射击调试关节时间缩放Layout_None_Basic', 20, 1070);
+
 
     //  确保不会颠倒过来渲染
     gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
@@ -93,7 +227,7 @@ function initWebgl() {
     // ];
     let vertexArr = [
         // vertex       // texture coord
-        -1, 1,      0.0, 0.0,
+        -1, 1,      0.0, 0.0, 
         1, 1,       1.0, 0.0,
         1, -1,      1.0, 1.0,
         -1, -1,     0.0, 1.0,
@@ -102,8 +236,8 @@ function initWebgl() {
     gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuf);
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertexArr), gl.STATIC_DRAW);
     let indexArr = [
-        0, 1, 2,
-        0, 2, 3,
+        0, 1, 3,
+        1, 2, 3,
     ];
     let indexBuf = gl.createBuffer();
     gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, indexBuf);
