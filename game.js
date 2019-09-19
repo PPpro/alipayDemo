@@ -47,4 +47,7 @@ import './webgl/main';
 // require('./demos/fs_write');
 
 // 两次加载同一个本地的音频文件，音频播放会出现异常，复现机型：OPPO R11
-require('./demos/repeatlyLoadAudio');
+// require('./demos/repeatlyLoadAudio');
+
+// audio 获取 duration 和 currentTime 报错, 平台：iOS
+require('./demos/audioDuration');
