@@ -1,6 +1,6 @@
 require('./my-adapter');
 
-// import './webgl/main';
+import './webgl/main';
 
 // performance_now 返回的时间错误 【已修复】
 // require('./demos/performance_now');
@@ -42,6 +42,9 @@ require('./my-adapter');
 // import './demos/label_outline';
 
 // 文字模糊
-import './demos/label_bug';
+// import './demos/label_bug';
 
 // require('./demos/fs_write');
+
+// 两次加载同一个本地的音频文件，音频播放会出现异常，复现机型：OPPO R11
+require('./demos/repeatlyLoadAudio');
