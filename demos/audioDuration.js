@@ -10,5 +10,5 @@ let audio = my.createInnerAudioContext();
 audio.src = audioPath;
 audio.onCanPlay(() => {
   audio.play();
-  console.error(audio.duration, audio.currentTime);
+  console.error(audio.duration);
 });

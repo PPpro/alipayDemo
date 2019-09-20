@@ -155,7 +155,8 @@ var Audio = function (_HTMLAudioElement) {
         });
 
         innerAudioContext.onPlay(function () {
-            _this._paused = _innerAudioContextMap.get(_this).paused;
+            // this._paused = _innerAudioContextMap.get(this).paused
+            _this._paused = false;
             _this.dispatchEvent({ type: 'play' });
             if (typeof _this.onplay === "function") {
                 _this.onplay();
@@ -163,7 +164,7 @@ var Audio = function (_HTMLAudioElement) {
         });
 
         innerAudioContext.onPause(function () {
-            _this._paused = _innerAudioContextMap.get(_this).paused;
+            _this._paused = true;
             _this.dispatchEvent({ type: 'pause' });
             if (typeof _this.onpause === "function") {
                 _this.onpause();
@@ -171,11 +172,14 @@ var Audio = function (_HTMLAudioElement) {
         });
 
         innerAudioContext.onEnded(function () {
-            _this._paused = _innerAudioContextMap.get(_this).paused;
-            if (_innerAudioContextMap.get(_this).loop === false) {
-                _this.dispatchEvent({ type: 'ended' });
-            }
+            // this._paused = _innerAudioContextMap.get(this).paused
+            _this._paused = false;
+            _this.dispatchEvent({ type: 'ended' });
             _this.readyState = HAVE_ENOUGH_DATA;
+            console.log("on audio context ended");
+            if (!_this._loop) {
+                innerAudioContext.destroy();
+            }
 
             if (typeof _this.onended === "function") {
                 _this.onended();
@@ -183,8 +187,10 @@ var Audio = function (_HTMLAudioElement) {
         });
 
         innerAudioContext.onError(function () {
-            _this._paused = _innerAudioContextMap.get(_this).paused;
+            // this._paused = _innerAudioContextMap.get(this).paused
+            _this._paused = true;
             _this.dispatchEvent({ type: 'error' });
+            innerAudioContext.destroy();
             if (typeof _this.onerror === "function") {
                 _this.onerror();
             }
@@ -659,8 +665,7 @@ function eventHandlerFactory(type) {
         event.changedTouches = rawEvent.touches;
         event.touches = rawEvent.touches;
         event.targetTouches = Array.prototype.slice.call(rawEvent.touches);
-        // event.timeStamp = rawEvent.timeStamp
-        console.log(JSON.stringify(event.type));
+        // event.timeStamp = rawEvent.timeStamp   
         _document2.default.dispatchEvent(event);
     };
 }
@@ -1159,7 +1164,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function Image() {
     var image = my.createImage();
     if (!_util.isIDE) {
-        image.__proto__.__proto__ = new _HTMLImageElement2.default();
+        image.__proto__ = new _HTMLImageElement2.default();
         if (image.tagName === undefined) {
             image.tagName = "IMG";
         }
@@ -1391,7 +1396,16 @@ var WebSocket = function () {
 
         task.onMessage(function (res) {
             if (typeof _this.onmessage === 'function') {
-                _this.onmessage(res);
+                if (res.data) {
+                    var data = res.data;
+                    if (data.isBuffer) {
+                        // 对齐web转成arrayBuffer;
+                        data.data = (0, _util.base64ToArrayBuffer)(data.data);
+                    }
+                    _this.onmessage(data);
+                } else {
+                    _this.onmessage(null);
+                }
             }
         });
 
@@ -1657,11 +1671,12 @@ var XMLHttpRequest = function (_EventTarget) {
           fail: function fail(res) {
             var errorMessage = res.errorMessage;
 
-            if (res.data.includes("超时")) {
+            var data = res.data || "";
+            if (data.includes("超时") || errorMessage.includes("超时")) {
               _triggerEvent.call(_this2, 'timeout');
             }
 
-            _triggerEvent.call(_this2, 'error', errorMessage);
+            _triggerEvent.call(_this2, 'error');
             _triggerEvent.call(_this2, 'loadend');
           }
         });
@@ -2182,6 +2197,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.isIDE = undefined;
 exports.transformArrayBufferToBase64 = transformArrayBufferToBase64;
+exports.arrayBufferToBase64 = arrayBufferToBase64;
+exports.base64ToArrayBuffer = base64ToArrayBuffer;
 
 var _Base = __webpack_require__(/*! ../Base64 */ "./src/Base64.js");
 
@@ -2192,6 +2209,72 @@ function transformArrayBufferToBase64(buffer) {
         binary += String.fromCharCode(bytes[i]);
     }
     return (0, _Base.btoa)(binary);
+}
+
+function encode(str) {
+  var encodings = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+  var string = String(str);
+  var result = '';
+  var currentIndex = 0;
+  var sum = void 0;
+  while (string.charAt(0 | currentIndex) || (encodings = '=', currentIndex % 1)) {
+    currentIndex += 0.75; // 每次移动3/4个位置
+    var currentCode = string.charCodeAt(currentIndex); // 获取code point
+    if (currentCode > 255) {
+      // 大于255无法处理
+      throw new Error('"btoa" failed');
+    }
+    sum = sum << 8 | currentCode; // 每次在上次的基础上左移8位再加上当前code point
+    var encodeIndex = 63 & sum >> 8 - currentIndex % 1 * 8; // 去除多余的位数，再去最后6位
+    result += encodings.charAt(encodeIndex);
+  }
+
+  return result;
+}
+
+function decode(str) {
+  var encodings = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+  var res = '';
+  var string = String(str).replace(/=+$/, '');
+  if (string.length % 4 === 1) {
+    throw new Error('"atob" failed');
+  }
+  var o,
+      r,
+      i = 0,
+      currentIndex = 0;
+  while (r = string.charAt(currentIndex)) {
+    currentIndex = currentIndex + 1;
+    r = encodings.indexOf(r);
+    if (~r) {
+      o = i % 4 ? 64 * o + r : r;
+      if (i++ % 4) {
+        res += String.fromCharCode(255 & o >> (-2 * i & 6));
+      }
+    }
+  }
+
+  return res;
+}
+
+function arrayBufferToBase64(buffer) {
+  var result = '';
+  var uintArray = new Uint8Array(buffer);
+  var byteLength = uintArray.byteLength;
+  for (var i = 0; i < byteLength; i++) {
+    result += String.fromCharCode(uintArray[i]);
+  }
+  return encode(result);
+}
+
+function base64ToArrayBuffer(base64) {
+  var string = decode(base64);
+  var length = string.length;
+  var uintArray = new Uint8Array(length);
+  for (var i = 0; i < length; i++) {
+    uintArray[i] = string.charCodeAt(i);
+  }
+  return uintArray.buffer;
 }
 
 var isIDE = exports.isIDE = window.navigator && /AlipayIDE/.test(window.navigator.userAgent);

@@ -1,6 +1,6 @@
 require('./my-adapter');
 
-import './webgl/main';
+// import './webgl/main';
 
 // performance_now 返回的时间错误 【已修复】
 // require('./demos/performance_now');
@@ -50,4 +50,7 @@ import './webgl/main';
 // require('./demos/repeatlyLoadAudio');
 
 // audio 获取 duration 和 currentTime 报错, 平台：iOS
-require('./demos/audioDuration');
+// require('./demos/audioDuration');
+
+// frameBuffer
+import './demos/frameBuffer';
