@@ -53,4 +53,7 @@ require('./my-adapter');
 // require('./demos/audioDuration');
 
 // frameBuffer
-import './demos/frameBuffer';
+// import './demos/frameBuffer';
+
+// shadow render
+require('./shadow/shadow');
