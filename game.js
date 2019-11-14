@@ -24,7 +24,7 @@ import './webgl/main';
 // require('./demos/fs_access');
 
 // 音频：使用下载和拷贝后的路径，播放失败，复现平台：安卓机
-// require('./demos/audio');
+require('./demos/audio');
 
 // keyboard 软键盘上没有出现输入框， 复现平台：小米5
 // require('./demos/keyboard');
@@ -50,7 +50,7 @@ import './webgl/main';
 // require('./demos/repeatlyLoadAudio');
 
 // audio 获取 duration 和 currentTime 报错, 平台：iOS
-require('./demos/audioDuration');
+// require('./demos/audioDuration');
 
 // frameBuffer
 // import './demos/frameBuffer';
@@ -60,3 +60,9 @@ require('./demos/audioDuration');
 
 // audio ended event
 // require('./demos/audioEnded');
+
+// audio 加载问题 复现平台：iOS
+// require('./demos/audioLoad');
+
+// audio 缓存问题
+// require('./demos/audioCopy');

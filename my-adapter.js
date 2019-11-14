@@ -186,8 +186,9 @@ var Audio = function (_HTMLAudioElement) {
             }
         });
 
-        innerAudioContext.onError(function () {
+        innerAudioContext.onError(function (res) {
             // this._paused = _innerAudioContextMap.get(this).paused
+            console.error('error', res);
             _this._paused = true;
             _this.dispatchEvent({ type: 'error' });
             innerAudioContext.destroy();
