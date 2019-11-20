@@ -24,7 +24,7 @@ import './webgl/main';
 // require('./demos/fs_access');
 
 // 音频：使用下载和拷贝后的路径，播放失败，复现平台：安卓机
-require('./demos/audio');
+// require('./demos/audio');
 
 // keyboard 软键盘上没有出现输入框， 复现平台：小米5
 // require('./demos/keyboard');
@@ -64,5 +64,8 @@ require('./demos/audio');
 // audio 加载问题 复现平台：iOS
 // require('./demos/audioLoad');
 
-// audio 缓存问题
-// require('./demos/audioCopy');
+// audio 缓存问题, iOS 上下载音频文件后，拷贝失败
+// 参考 demos/audio
+
+// audio wav 文件下载下来是 other 文件
+require('./demos/audioWav');
