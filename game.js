@@ -1,6 +1,6 @@
 require('./my-adapter');
 
-import './webgl/main';
+// import './webgl/main';
 
 // performance_now 返回的时间错误 【已修复】
 // require('./demos/performance_now');
@@ -41,8 +41,9 @@ import './webgl/main';
 // 文字描边和阴影
 // import './demos/label_outline';
 
-// 文字模糊
-// import './demos/label_bug';
+// 文字模糊 机型：华为畅享7
+// 文字渲染不出来  机型：vivo Y93s
+import './demos/label_bug';
 
 // require('./demos/fs_write');
 
@@ -68,4 +69,4 @@ import './webgl/main';
 // 参考 demos/audio
 
 // audio wav 文件下载下来是 other 文件
-require('./demos/audioWav');
+// require('./demos/audioWav');
