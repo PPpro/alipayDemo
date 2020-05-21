@@ -1,6 +1,9 @@
 require('./my-adapter');
 
-// import './webgl/main';
+import './webgl/main';
+
+// 安卓加载网络图片报错
+require('./demos/webImage');
 
 // performance_now 返回的时间错误 【已修复】
 // require('./demos/performance_now');
@@ -43,7 +46,7 @@ require('./my-adapter');
 
 // 文字模糊 机型：华为畅享7
 // 文字渲染不出来  机型：vivo Y93s
-import './demos/label_bug';
+// import './demos/label_bug';
 
 // require('./demos/fs_write');
 
